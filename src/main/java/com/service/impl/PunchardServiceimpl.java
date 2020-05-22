@@ -49,5 +49,10 @@ public class PunchardServiceimpl implements PunchardService {
         return punchcardDao.updateByPrimaryKeySelective(punchcard);
     }
 
+    @Override
+    public List<Punchcard> list(int empid, int month) {
+        return punchcardDao.listbyempidmonth(empid,month);
+    }
+
 
 }

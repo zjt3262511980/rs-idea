@@ -15,4 +15,10 @@ public interface PunchcardDao extends Mapper<Punchcard> {
     })
     @Select("select a.*,b.Beonduty_day,Beonduty_month from punchcard a,beonduty b where a.Beonduty_id=b.Beonduty_id and a.emp_id=#{empid} and b.Beonduty_month=#{month}")
     List<Punchcard> listpunchard(int empid, int month);
+    @Results(value = {
+            @Result(column = "emp_name",property = "employee.empName"),
+            @Result(column = "Beonduty_day",property = "beonduty.beondutyDay"),
+    })
+    @Select("select a.*,e.emp_name,b.Beonduty_day from punchcard a,employee e,beonduty b where a.emp_id=e.emp_id and a.Beonduty_id=b.Beonduty_id and e.emp_id=#{empid} and b.Beonduty_month=#{month} ")
+    List<Punchcard> listbyempidmonth(int empid, int month);
 }

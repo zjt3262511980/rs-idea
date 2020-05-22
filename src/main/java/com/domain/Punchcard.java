@@ -13,8 +13,18 @@ public class Punchcard {
   private java.sql.Timestamp punchEndDate;
   private Integer empId;
   private Integer beondutyId;
-
+//上班表
   private Beonduty beonduty;
+  //员工表
+  private Employee employee;
+
+  public Employee getEmployee() {
+    return employee;
+  }
+
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
+  }
 
   public Beonduty getBeonduty() {
     return beonduty;

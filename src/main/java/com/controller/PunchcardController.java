@@ -71,4 +71,9 @@ public class PunchcardController {
         return punchardService.selectbytime(Integer.parseInt(beondutyId), empid);
     }
 
+    @RequestMapping("listbyempidbymoth")
+    public List<Punchcard> listbyempidbymoth(int empid, int month) {
+        return punchardService.list(empid,month);
+    }
+
 }

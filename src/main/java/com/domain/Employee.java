@@ -31,6 +31,16 @@ public class Employee {
   private  TmExamdataAddition tmExamdataAddition;
   //上级
   private Employee superior;
+  //考勤信息
+  private Checkingin checkingin;
+
+  public Checkingin getCheckingin() {
+    return checkingin;
+  }
+
+  public void setCheckingin(Checkingin checkingin) {
+    this.checkingin = checkingin;
+  }
 
   public Employee getSuperior() {
     return superior;

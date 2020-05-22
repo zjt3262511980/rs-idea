@@ -11,4 +11,5 @@ public interface PunchardService {
     Punchcard selectbytime(int beondutyid, int empid);
     int intsertpuchcard(int empid,int beondutyid);
     int updatepuchcard(Punchcard punchcard);
+    List<Punchcard> list(int empid,int month);
 }

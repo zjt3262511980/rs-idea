@@ -25,4 +25,9 @@ public interface EmployeeDao extends Mapper<Employee> {
     @ResultMap("employe_dept_tm")
     @Select("select a.*,d.*,t.* from employee a,dept d,tm_examdata_addition t where a.emp_dept=d.Dep_id and a.Emp_position=t.Tm_e_a_di and (a.emp_name like #{tj} or a.emp_sex like #{tj} or d.Dep_department like #{tj or t.Tm_e_a_position like #{tj} or a.Emp_major like #{tj}) and a.Emp_status ='在职'")
     List<Employee> listemployeenot(String tj);
+    @Results(value = {
+            @Result(column = "che_id",property = "checkingin.cheId")
+    })
+    @Select("SELECT * from employee e left join checkingin a on a.emp_id=e.emp_id and che_moth=#{mothe}")
+    List<Employee> selectbymothnotemid(String mothe);
 }
