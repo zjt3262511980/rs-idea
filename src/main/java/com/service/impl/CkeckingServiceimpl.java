@@ -3,10 +3,7 @@ package com.service.impl;
 import com.dao.CheckinginDao;
 import com.dao.EmployeeDao;
 import com.dao.PunchcardDao;
-import com.domain.Beonduty;
-import com.domain.Checkingin;
-import com.domain.Employee;
-import com.domain.Punchcard;
+import com.domain.*;
 import com.service.BeondutyService;
 import com.service.CkeckinginService;
 import com.service.PunchardService;
@@ -77,6 +74,22 @@ public class CkeckingServiceimpl implements CkeckinginService {
         checkingin.setEmpId(empid);
         System.out.println(checkingin);
         return checkingin;
+    }
+
+    @Override
+    public Checkingin selectbyidmoth(int empid,String moth) {
+        Example example=new Example(Checkingin.class);
+        Example.Criteria criteria=example.createCriteria();
+        criteria.andEqualTo("empId",empid);
+        criteria.andEqualTo("cheMoth",moth);
+        Checkingin checkingin= checkinginDao.selectOneByExample(example);
+        if(checkingin==null){
+           return null;
+        }else {
+            checkingin.setEmployee(employeeDao.byid(checkingin.getEmpId()));
+            return checkingin;
+        }
+
     }
 
 }

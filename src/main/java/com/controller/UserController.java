@@ -87,6 +87,7 @@ public class UserController {
     public String  logout(HttpSession session, SessionStatus sessionStatus) {
         session.invalidate();
         sessionStatus.setComplete();
+        userrvx=null;
         return "注销成功";
     }
 }

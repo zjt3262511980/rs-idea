@@ -10,4 +10,5 @@ public interface CkeckinginService {
     List<Employee> selectbymoth(String moth);
     int insertmoth(Checkingin checkingin);
     Checkingin jscs(int empid,int moth);
+    Checkingin selectbyidmoth(int empid,String moth);
 }

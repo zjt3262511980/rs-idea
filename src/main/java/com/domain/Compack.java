@@ -1,17 +1,70 @@
 package com.domain;
 
-//薪酬套餐
-public class Compack {
 
+import javax.persistence.Id;
+
+public class Compack {
+  //薪酬id
+  @Id
+  private Integer codeId;
+  //员工工资
   private Double empSalary;
+  //主管工资
   private Double empChargeSalary;
+  //经理工资
   private Double empManagerSalary;
+  //总经理工资
   private Double empZongmanagerSalary;
+  //全勤奖
   private Double comAward;
+  //补伙食费
   private Double comBoard;
+  //公积金百分比
   private Double comAccumulation;
+  //社保百分比
   private Double comSocial;
+  //迟到扣款
   private Double comLate;
+
+  @Override
+  public String toString() {
+    return "Compack{" +
+            "codeId=" + codeId +
+            ", empSalary=" + empSalary +
+            ", empChargeSalary=" + empChargeSalary +
+            ", empManagerSalary=" + empManagerSalary +
+            ", empZongmanagerSalary=" + empZongmanagerSalary +
+            ", comAward=" + comAward +
+            ", comBoard=" + comBoard +
+            ", comAccumulation=" + comAccumulation +
+            ", comSocial=" + comSocial +
+            ", comLate=" + comLate +
+            '}';
+  }
+
+  public Compack() {
+  }
+
+  public Compack(Integer codeId, Double empSalary, Double empChargeSalary, Double empManagerSalary, Double empZongmanagerSalary, Double comAward, Double comBoard, Double comAccumulation, Double comSocial, Double comLate) {
+    this.codeId = codeId;
+    this.empSalary = empSalary;
+    this.empChargeSalary = empChargeSalary;
+    this.empManagerSalary = empManagerSalary;
+    this.empZongmanagerSalary = empZongmanagerSalary;
+    this.comAward = comAward;
+    this.comBoard = comBoard;
+    this.comAccumulation = comAccumulation;
+    this.comSocial = comSocial;
+    this.comLate = comLate;
+  }
+
+  public Integer getCodeId() {
+    return codeId;
+  }
+
+  public void setCodeId(Integer codeId) {
+    this.codeId = codeId;
+  }
 
 
   public Double getEmpSalary() {

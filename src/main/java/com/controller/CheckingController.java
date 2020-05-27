@@ -36,5 +36,9 @@ public class CheckingController {
         return  ckeckinginService.jscs(empid,moth);
     }
 
+    @RequestMapping("selectbyidmont")
+    public Checkingin selectbyidmont(int empid,String moth){
+        return  ckeckinginService.selectbyidmoth(empid,moth);
+    }
 
 }

@@ -33,6 +33,16 @@ public class Employee {
   private Employee superior;
   //考勤信息
   private Checkingin checkingin;
+  //薪酬
+  private Remuneration remuneration;
+
+  public Remuneration getRemuneration() {
+    return remuneration;
+  }
+
+  public void setRemuneration(Remuneration remuneration) {
+    this.remuneration = remuneration;
+  }
 
   public Checkingin getCheckingin() {
     return checkingin;

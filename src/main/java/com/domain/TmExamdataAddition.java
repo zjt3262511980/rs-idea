@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Table(name = "tm_examdata_addition")
+//职位表
 public class TmExamdataAddition {
   @Id
   private Integer tmEADi;
