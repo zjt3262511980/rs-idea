@@ -47,6 +47,7 @@ public class UserController {
         userrs=userrsService.denluuserrs(userrs.getUserName(),userrs.getUserPawd());
 
         map.put(MyConstants.USERRS,userrs);
+
         userrvx=userrs;
         return "redirect:http://localhost:70/#/Login";
     }
@@ -56,7 +57,7 @@ public class UserController {
     public Userrs selectuserrs(Map map,HttpSession session){
         Userrs userrs = (Userrs)map.get(MyConstants.USERRS);
 
-           userrs=userrvx;
+          userrs=userrvx;
         return userrs;
     }
 

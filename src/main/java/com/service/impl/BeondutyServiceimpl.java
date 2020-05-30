@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -68,5 +69,18 @@ public class BeondutyServiceimpl implements BeondutyService {
         Example.Criteria criteria=example.createCriteria();
         criteria.andEqualTo("beondutyDay",new java.sql.Date(date.getTime()));
         return beondutyDao.selectOneByExample(example);
+    }
+
+    @Override
+    public List<String> listbeondutystring(int month) {
+        Example example=new Example(Beonduty.class);
+        Example.Criteria criteria=example.createCriteria();
+        criteria.andEqualTo("beondutyMonth",month);
+        List<Beonduty> list=beondutyDao.selectByExample(example);
+       List<String> liststring=new ArrayList<>();
+       for(int i=0;i<list.size();i++){
+           liststring.add(list.get(i).getBeondutyDaystring());
+       };
+       return liststring;
     }
 }

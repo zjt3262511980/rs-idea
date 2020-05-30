@@ -2,15 +2,17 @@ package com.domain;
 
 
 import javax.persistence.Id;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 //打卡表
 public class Punchcard {
 @Id
   private Integer punchId;
-  private java.sql.Timestamp punchStatusDate;
-  private java.sql.Timestamp punchEndDate;
+  private Date punchStatusDate;
+  private Date punchEndDate;
   private Integer empId;
   private Integer beondutyId;
 //上班表
@@ -37,7 +39,7 @@ public class Punchcard {
   public Punchcard() {
   }
 
-  public Punchcard(Integer punchId, Timestamp punchStatusDate, Timestamp punchEndDate, Integer empId, Integer beondutyId) {
+  public Punchcard(Integer punchId, Date punchStatusDate, Date punchEndDate, Integer empId, Integer beondutyId) {
     this.punchId = punchId;
     this.punchStatusDate = punchStatusDate;
     this.punchEndDate = punchEndDate;
@@ -65,7 +67,7 @@ public class Punchcard {
   }
 
 
-  public java.sql.Timestamp getPunchStatusDate() {
+  public Date getPunchStatusDate() {
     return punchStatusDate;
   }
 
@@ -74,7 +76,7 @@ public class Punchcard {
   }
 
 
-  public java.sql.Timestamp getPunchEndDate() {
+  public Date getPunchEndDate() {
     return punchEndDate;
   }
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -52,6 +53,28 @@ public class PunchardServiceimpl implements PunchardService {
     @Override
     public List<Punchcard> list(int empid, int month) {
         return punchcardDao.listbyempidmonth(empid,month);
+    }
+
+    @Override
+    public List<String> liststring(int empid, int month) {
+      List<Punchcard> list=punchcardDao.listpunchard(empid,month);
+      List<String> liststring=new ArrayList<String>();
+      for(int i=0;i<list.size();i++){
+          list.get(i).getPunchStatusDate().setDate(1);
+          liststring.add(list.get(i).getPunchStatusDatestring());
+      }
+        return liststring;
+    }
+
+    @Override
+    public List<String> liststring2(int empid, int month) {
+        List<Punchcard> list=punchcardDao.listpunchard(empid,month);
+        List<String> liststring=new ArrayList<String>();
+        for(int i=0;i<list.size();i++){
+            list.get(i).getPunchEndDate().setDate(1);
+            liststring.add(list.get(i).getPunchEndDatestring());
+        }
+        return liststring;
     }
 
 

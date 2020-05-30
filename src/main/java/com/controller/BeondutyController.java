@@ -4,6 +4,7 @@ import com.domain.Beonduty;
 import com.domain.Dept;
 import com.domain.Punchcard;
 import com.domain.Userrs;
+import com.dto.Dkxx;
 import com.dto.Pundto;
 import com.service.BeondutyService;
 import com.service.DeptService;
@@ -76,5 +77,14 @@ public class BeondutyController {
     @RequestMapping("selectcz")
     public Beonduty selectcz(Date date){
         return beondutyService.selectbydate(date);
+    }
+
+    @RequestMapping("selectstring")
+    public Dkxx selectstring(Integer empid,Integer moth){
+        Dkxx dkxx=new Dkxx();
+          dkxx.setBeonlit(beondutyService.listbeondutystring(moth));
+          dkxx.setPunStatus(punchardService.liststring(empid,moth));
+          dkxx.setPunout(punchardService.liststring2(empid,moth));
+        return dkxx;
     }
 }

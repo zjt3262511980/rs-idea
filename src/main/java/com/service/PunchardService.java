@@ -12,4 +12,6 @@ public interface PunchardService {
     int intsertpuchcard(int empid,int beondutyid);
     int updatepuchcard(Punchcard punchcard);
     List<Punchcard> list(int empid,int month);
+    List<String>  liststring(int empid, int month);
+    List<String>  liststring2(int empid, int month);
 }

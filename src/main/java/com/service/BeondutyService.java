@@ -10,4 +10,5 @@ public interface BeondutyService {
     List<Beonduty> listbeonduty(int month);
     int upbeonduty(int year,int month,int [] day);
     Beonduty selectbydate(Date date);
+    List<String> listbeondutystring(int month);
 }
