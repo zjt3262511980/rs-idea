@@ -25,6 +25,9 @@ public interface RemunerationDao extends Mapper<Remuneration> {
     @Select("select e.*,a.* from employee e left join remuneration a on e.emp_id=a.emp_id and Rem_month=#{date}")
     List<Employee> selectbyemp(String date);
 
+    @Select("select e.*,a.* from employee e,remuneration a where e.emp_id=a.emp_id and Rem_month=#{date} and a.Rem_zjl_yj=2 or a.Rem_cw_yj=2")
+    List<Employee> selectbyempbenjujie(String date);
+
     @ResultMap("zwtj")
     @Select("select a.*,e.emp_name,e.Emp_img,d.Dep_department,t.Tm_e_a_position from remuneration a,employee e,dept d,tm_examdata_addition t where a.emp_id=e.emp_id and e.emp_dept =d.Dep_id and e.Emp_position=t.Tm_e_a_di and a.Rem_zjl_yj=1 and a.Rem_month=#{date}")
     List<Remuneration> senqinzjl(String date);

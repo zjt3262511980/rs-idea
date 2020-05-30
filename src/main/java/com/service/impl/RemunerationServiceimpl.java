@@ -37,6 +37,11 @@ public class RemunerationServiceimpl implements RemunerationService{
                 list2.add(list.get(i));
             }
         }
+        //被拒觉
+        List<Employee> listbjj=remunerationDao.selectbyempbenjujie(date);
+        for (int i=0;i<listbjj.size();i++){
+                list2.add(listbjj.get(i));
+        }
         return list2;
     }
 
